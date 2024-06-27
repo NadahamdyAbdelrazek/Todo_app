@@ -6,6 +6,7 @@ import 'package:todo_app/sheets/Theme_bottom_sheet.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../Provider/My_provider.dart';
+import '../Theme/My_theme.dart';
 
 class Settingstab extends StatelessWidget {
   const Settingstab({super.key});
@@ -20,7 +21,7 @@ class Settingstab extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             AppLocalizations.of(context)!.language,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+            style: TextStyle(color: MyThemeData.primarycolor ,fontSize: 14, fontWeight: FontWeight.w700),
           ),
         ),
         SizedBox(
@@ -29,7 +30,7 @@ class Settingstab extends StatelessWidget {
         InkWell(
           onTap: () {
             showModalBottomSheet(isDismissible: true,
-              isScrollControlled: true,
+              isScrollControlled: false,
               context: context,
               builder: (context) {
               return Languagebottomsheet();
@@ -48,7 +49,7 @@ class Settingstab extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(AppLocalizations.of(context)!.arbic,
+                  Text(provider.language=="en"?AppLocalizations.of(context)!.enghlish:AppLocalizations.of(context)!.arbic,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -64,8 +65,8 @@ class Settingstab extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Mode",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
+          child: Text(AppLocalizations.of(context)!.mode,
+              style: TextStyle(color: MyThemeData.primarycolor,fontSize: 14, fontWeight: FontWeight.w700)),
         ),
         SizedBox(
           height: 12,
@@ -73,7 +74,7 @@ class Settingstab extends StatelessWidget {
         InkWell(
           onTap: () {
             showModalBottomSheet(isDismissible: true,
-              isScrollControlled: true,
+              isScrollControlled: false,
               context: context,
               builder: (context) {
                 return Themebottomsheet();
@@ -93,7 +94,7 @@ class Settingstab extends StatelessWidget {
               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.light,
+                   provider.Mytheme==ThemeMode.light? AppLocalizations.of(context)!.light:AppLocalizations.of(context)!.dark,
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,

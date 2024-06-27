@@ -6,5 +6,15 @@
   "dark": "داكن",
   "light": "مضي",
   "enghlish": "انجلش",
-  "arbic": "عربي"
+  "arbic": "عربي",
+  "notask": "لا توجد مهام",
+  "done": "تم!",
+  "addnewtask": "اضافه مهام جديده",
+  "tittle": "العنوان",
+  "description": "الوصف",
+  "selecttime": "التاريخ",
+  "addtask": "اضافه مهام",
+  "delete": "حذف",
+  "edit": "تعديل"
+
 }

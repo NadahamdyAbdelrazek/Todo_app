@@ -24,9 +24,9 @@ class Languagebottomsheet extends StatelessWidget {
                 provider.changeLanguage("ar");
 
               },
-                child: Text(AppLocalizations.of(context)!.arbic,style: TextStyle(fontSize: 14,
+                child: Text(AppLocalizations.of(context)!.arbic,style: TextStyle(fontSize: 22,
                     fontWeight: FontWeight.w400,
-                   color:provider.language=="en"? Colors.black:Colors.blue),),
+                   color:provider.language=="en"? Colors.white:Colors.blue),),
               ),
               provider.language=="en"?SizedBox():Icon(Icons.done,color: Colors.blue),
             ],
@@ -36,9 +36,9 @@ class Languagebottomsheet extends StatelessWidget {
               InkWell(onTap: (){
                 provider.changeLanguage("en");
               },
-                child: Text(AppLocalizations.of(context)!.enghlish,style: TextStyle(fontSize: 14,
+                child: Text(AppLocalizations.of(context)!.enghlish,style: TextStyle(fontSize: 22,
                     fontWeight: FontWeight.w400,
-                    color:provider.language=="en"? Colors.blue:Colors.black),),
+                    color:provider.language=="en"? Colors.blue:Colors.white),),
               ),
               provider.language=="en"?Icon(Icons.done,color: Colors.blue):SizedBox(),
             ],

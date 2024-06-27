@@ -1,14 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app/Home_Screen.dart';
+import 'package:todo_app/Theme/My_theme.dart';
+import 'package:todo_app/home/Edit_task.dart';
+import 'package:todo_app/home/Home_Screen.dart';
 import 'package:todo_app/Provider/My_provider.dart';
-import 'Splash_Screen.dart';
+import 'package:todo_app/login/auth_screen.dart';
+import 'firebase_options.dart';
+import 'home/Splash_Screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main()  {
-  runApp(ChangeNotifierProvider<MyProvider>(create: (context) => MyProvider() ,
-  child: const MyApp()));
+
+
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseFirestore.instance.disableNetwork();
+  runApp(ChangeNotifierProvider<MyProvider>(create: (context) =>
+      MyProvider()..getLang()..getTheme(),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,9 +32,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
+    var provider = Provider.of<MyProvider>(context);
     return MaterialApp(
       locale: Locale(provider.language),
+      theme: MyThemeData.lighttheme,
+      darkTheme: MyThemeData.darktheme,
+      themeMode: provider.Mytheme,
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -32,10 +50,14 @@ class MyApp extends StatelessWidget {
       ],
 
       debugShowCheckedModeBanner: false,
+      title: "To Do List App",
       initialRoute: splashScreen.routename,
       routes: {
-        splashScreen.routename:(context) => splashScreen(),
-      HomeScreen.routename:(context) => HomeScreen(),
+        splashScreen.routename: (context) => splashScreen(),
+        HomeScreen.routename: (context) => HomeScreen(),
+        EditTask.routename: (context) => EditTask(),
+        AuthScreen.routename: (context) => AuthScreen(),
+
 
 
       },

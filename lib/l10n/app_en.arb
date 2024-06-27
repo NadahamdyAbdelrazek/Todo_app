@@ -5,7 +5,16 @@
   "mode":"Mode",
   "dark":"Dark",
   "light":"Light",
-  "enghlish":"Enghlish",
-  "arbic":"Arabic"
+  "enghlish":"English",
+  "arbic":"Arabic",
+  "notask": "NoTasks",
+  "done": "Done!",
+  "addnewtask": "AddNewTask",
+  "tittle": "Tittle",
+  "description": "Description",
+  "selecttime": "Selecttime",
+  "addtask": "AddTask",
+  "delete": "Delete",
+  "edit": "Edit"
 
 }

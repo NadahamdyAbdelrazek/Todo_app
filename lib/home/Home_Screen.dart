@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app/add_task_bottom_sheet.dart';
+import 'package:todo_app/sheets/add_task_bottom_sheet.dart';
 import 'package:todo_app/tabs/setting_tab.dart';
 import 'package:todo_app/tabs/tasks_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'Provider/My_provider.dart';
+import '../Provider/My_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routename = "home";
@@ -30,10 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.appname,
-          style: TextStyle(
-            fontSize: 22,
-            color: Colors.white,
-          ),
         ),
         backgroundColor: Colors.blue,
       ),

@@ -17,7 +17,7 @@ class Themebottomsheet extends StatelessWidget {
                 InkWell(onTap: (){
                   provider.changeMode(ThemeMode.dark);
                 },
-                  child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 14,
+                  child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 22,
                       fontWeight: FontWeight.w400,
                       color: provider.Mytheme==ThemeMode.light?Colors.black: Colors.blue),),
                 ),
@@ -29,9 +29,9 @@ class Themebottomsheet extends StatelessWidget {
               InkWell(onTap: (){
                 provider.changeMode(ThemeMode.light);
               },
-                child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 14,
+                child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 22,
                     fontWeight: FontWeight.w400,
-                    color: provider.Mytheme==ThemeMode.light?Colors.blue:Colors.black),),
+                    color: provider.Mytheme==ThemeMode.light?Colors.blue:Colors.white),),
               ),
               provider.Mytheme==ThemeMode.light? Icon(Icons.done,color: Colors.blue):SizedBox(),
             ],

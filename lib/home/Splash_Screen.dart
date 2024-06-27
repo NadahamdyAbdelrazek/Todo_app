@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:todo_app/login/auth_screen.dart';
 
 import 'Home_Screen.dart';
 
@@ -18,7 +19,7 @@ class _splashScreenState extends State<splashScreen> {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routename);
+      Navigator.of(context).pushReplacementNamed(AuthScreen.routename);
     });
   }
 

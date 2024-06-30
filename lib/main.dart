@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/Theme/My_theme.dart';
@@ -21,6 +24,25 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await FirebaseFirestore.instance.disableNetwork();
+  const fatalError = true;
+  FlutterError.onError = (errorDetails) {
+    if (fatalError) {
+      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+      // ignore: dead_code
+    } else {
+      FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+    }
+  };
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    if (fatalError) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      // ignore: dead_code
+    } else {
+      FirebaseCrashlytics.instance.recordError(error, stack);
+    }
+    return true;
+  };
   runApp(ChangeNotifierProvider<MyProvider>(create: (context) =>
       MyProvider()..getLang()..getTheme(),
       child: const MyApp()));

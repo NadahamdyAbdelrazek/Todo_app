@@ -2,6 +2,8 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.firebase.crashlytics'  version '3.0.2' apply false
+
 }
 
 def localProperties = new Properties()
@@ -68,4 +70,7 @@ flutter {
 
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
 }

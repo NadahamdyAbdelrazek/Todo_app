@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/login/Login.dart';
-import 'package:todo_app/login/register.dart';
+import 'package:todo_app/auth/register.dart';
+
+import 'login/Login.dart';
+
 
 class AuthScreen extends StatelessWidget {
   static const String routename = "authscreen";

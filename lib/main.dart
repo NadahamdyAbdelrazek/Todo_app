@@ -9,7 +9,7 @@ import 'package:todo_app/Theme/My_theme.dart';
 import 'package:todo_app/home/Edit_task.dart';
 import 'package:todo_app/home/Home_Screen.dart';
 import 'package:todo_app/Provider/My_provider.dart';
-import 'package:todo_app/login/auth_screen.dart';
+import 'auth/auth_screen.dart';
 import 'firebase_options.dart';
 import 'home/Splash_Screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

@@ -6,6 +6,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/Theme/My_theme.dart';
+import 'package:todo_app/firebase/fcm.dart';
 import 'package:todo_app/home/Edit_task.dart';
 import 'package:todo_app/home/Home_Screen.dart';
 import 'package:todo_app/Provider/My_provider.dart';
@@ -43,6 +44,7 @@ void main() async{
     }
     return true;
   };
+ await FCM.init();
   runApp(ChangeNotifierProvider<MyProvider>(create: (context) =>
       MyProvider()..getLang()..getTheme(),
       child: const MyApp()));
